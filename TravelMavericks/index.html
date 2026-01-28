@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Mavericks - Your Adventure Awaits</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-plane-departure"></i>
+                <span>Travel Mavericks</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#trips" class="nav-link">Trips</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="userBtn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <a href="#" class="nav-link" id="adminBtn" style="display: none;">
+                    <i class="fas fa-cog"></i> Admin
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Adventure</h1>
+            <p class="hero-subtitle">Explore breathtaking destinations across Africa and beyond</p>
+            <button class="btn btn-primary" onclick="scrollToSection('trips')">
+                Explore Trips
+            </button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Trips Section -->
+    <section id="trips" class="trips-section">
+        <div class="container">
+            <h2 class="section-title">Featured Destinations</h2>
+            <p class="section-subtitle">Handpicked adventures for the modern traveler</p>
+            
+            <div class="trips-grid" id="tripsGrid">
+                <!-- Trip Card 1 -->
+                <div class="trip-card" data-trip-id="mozambique">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600" alt="Mozambique Beach">
+                        <div class="trip-badge">Popular</div>
+                    </div>
+                    <div class="trip-content">
+                        <h3>Mozambique Paradise</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mozambique</span>
+                        </div>
+                        <p class="trip-description">Experience pristine beaches, crystal clear waters, and vibrant marine life on this 7-day tropical getaway.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>7 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 12,500</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('mozambique')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Card 2 -->
+                <div class="trip-card" data-trip-id="capetown">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600" alt="Cape Town">
+                    </div>
+                    <div class="trip-content">
+                        <h3>Cape Town Explorer</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South Africa</span>
+                        </div>
+                        <p class="trip-description">Discover the Mother City with Table Mountain views, wine tours, and stunning coastal drives.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>5 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 8,900</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('capetown')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Card 3 -->
+                <div class="trip-card" data-trip-id="zanzibar">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1568408310668-b022b9e13718?w=600" alt="Zanzibar">
+                        <div class="trip-badge">New</div>
+                    </div>
+                    <div class="trip-content">
+                        <h3>Zanzibar Island Escape</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tanzania</span>
+                        </div>
+                        <p class="trip-description">Immerse yourself in the spice islands with historic Stone Town and white sand beaches.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 10,200</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('zanzibar')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Card 4 -->
+                <div class="trip-card" data-trip-id="victoria-falls">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1484318571209-661cf29a69c3?w=600" alt="Victoria Falls">
+                    </div>
+                    <div class="trip-content">
+                        <h3>Victoria Falls Adventure</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Zimbabwe/Zambia</span>
+                        </div>
+                        <p class="trip-description">Witness one of the Seven Natural Wonders with thrilling activities and wildlife safaris.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>4 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 9,800</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('victoria-falls')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Card 5 -->
+                <div class="trip-card" data-trip-id="mauritius">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600" alt="Mauritius">
+                    </div>
+                    <div class="trip-content">
+                        <h3>Mauritius Luxury Retreat</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mauritius</span>
+                        </div>
+                        <p class="trip-description">Indulge in luxury resorts, turquoise lagoons, and world-class diving experiences.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 15,600</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('mauritius')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Card 6 -->
+                <div class="trip-card" data-trip-id="kruger">
+                    <div class="trip-image">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600" alt="Kruger Safari">
+                    </div>
+                    <div class="trip-content">
+                        <h3>Kruger Safari Experience</h3>
+                        <div class="trip-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South Africa</span>
+                        </div>
+                        <p class="trip-description">Encounter the Big Five on guided game drives through Africa's premier wildlife reserve.</p>
+                        <div class="trip-details">
+                            <div class="trip-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>5 Days</span>
+                            </div>
+                            <div class="trip-price">
+                                <span class="price-label">From</span>
+                                <span class="price-value">R 11,400</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-book" onclick="openBooking('kruger')">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We're here to help plan your perfect journey</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+27 11 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@travelmavericks.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Adventure Street, Johannesburg, South Africa</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-plane-departure"></i>
+                    <span>Travel Mavericks</span>
+                    <p>Your adventure begins here</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#trips">Trips</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">About Us</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">FAQs</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Payment Options</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Travel Mavericks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('loginModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-user-circle"></i> Welcome Back</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Login
+                </button>
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a>
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-light); text-align: center; margin-top: 1rem; padding: 0.5rem; background-color: var(--bg-secondary); border-radius: 4px;">
+                    <strong>Demo Admin:</strong> admin@travelmavericks.com / admin123
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('signupModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Sign Up
+                </button>
+                <p class="auth-switch">
+                    Already have an account? <a href="#" onclick="switchToLogin()">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('adminLoginModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-shield-alt"></i> Admin Login</h2>
+            <form id="adminLoginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" required placeholder="admin@travelmavericks.com">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Admin Login
+                </button>
+                <p class="auth-switch">
+                    Demo: admin@travelmavericks.com / admin123
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal modal-large" id="bookingModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('bookingModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h2 id="bookingTitle">Book Your Trip</h2>
+                    <p id="bookingSubtitle">Complete your booking details</p>
+                </div>
+
+                <div class="booking-content">
+                    <div class="booking-details">
+                        <img id="bookingImage" src="" alt="Trip destination">
+                        <div class="booking-info">
+                            <h3 id="bookingDestination"></h3>
+                            <div class="booking-info-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="bookingDuration"></span>
+                            </div>
+                            <div class="booking-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="bookingLocation"></span>
+                            </div>
+                            <div class="booking-price-display">
+                                <span>Total Price:</span>
+                                <span class="price" id="bookingPrice">R 0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="bookingForm" class="booking-form">
+                        <h3>Traveler Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bookingName">Full Name *</label>
+                                <input type="text" id="bookingName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingEmail">Email *</label>
+                                <input type="email" id="bookingEmail" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bookingPhone">Phone Number *</label>
+                                <input type="tel" id="bookingPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingTravelers">Number of Travelers *</label>
+                                <input type="number" id="bookingTravelers" min="1" max="10" value="1" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bookingDate">Departure Date *</label>
+                                <input type="date" id="bookingDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bookingAccommodation">Accommodation Type *</label>
+                                <select id="bookingAccommodation" required>
+                                    <option value="">Select accommodation</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="deluxe">Deluxe (+R 2,000)</option>
+                                    <option value="luxury">Luxury (+R 5,000)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingNotes">Special Requests (Optional)</label>
+                            <textarea id="bookingNotes" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-shopping-cart"></i> Proceed to Checkout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal modal-large" id="checkoutModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('checkoutModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="checkout-container">
+                <h2><i class="fas fa-credit-card"></i> Secure Checkout</h2>
+                
+                <div class="checkout-content">
+                    <div class="checkout-summary">
+                        <h3>Order Summary</h3>
+                        <div class="summary-item">
+                            <span>Trip:</span>
+                            <span id="checkoutTripName"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Travelers:</span>
+                            <span id="checkoutTravelers"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Accommodation:</span>
+                            <span id="checkoutAccommodation"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Departure:</span>
+                            <span id="checkoutDate"></span>
+                        </div>
+                        <hr>
+                        <div class="summary-item">
+                            <span>Base Price:</span>
+                            <span id="checkoutBasePrice"></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Accommodation Upgrade:</span>
+                            <span id="checkoutUpgradePrice"></span>
+                        </div>
+                        <div class="summary-item summary-total">
+                            <span>Total:</span>
+                            <span id="checkoutTotal"></span>
+                        </div>
+                        <div class="trust-badges">
+                            <div class="badge-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Protected Booking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-payment">
+                        <h3>Payment Method</h3>
+                        <div class="payment-methods">
+                            <div class="payment-option">
+                                <input type="radio" id="paymentCard" name="paymentMethod" value="card" checked>
+                                <label for="paymentCard">
+                                    <i class="fas fa-credit-card"></i>
+                                    Credit/Debit Card
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="paymentPaypal" name="paymentMethod" value="paypal">
+                                <label for="paymentPaypal">
+                                    <i class="fab fa-paypal"></i>
+                                    PayPal
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="paymentEft" name="paymentMethod" value="eft">
+                                <label for="paymentEft">
+                                    <i class="fas fa-university"></i>
+                                    EFT/Bank Transfer
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="cardPaymentForm" class="payment-form">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name</label>
+                                <input type="text" id="cardName" placeholder="John Doe">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardExpiry">Expiry Date</label>
+                                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardCvv">CVV</label>
+                                    <input type="text" id="cardCvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="paypalPaymentForm" class="payment-form" style="display: none;">
+                            <div class="paypal-info">
+                                <i class="fab fa-paypal" style="font-size: 48px; color: #0070ba; margin-bottom: 1rem;"></i>
+                                <p>You will be redirected to PayPal to complete your payment securely.</p>
+                                <div id="paypal-button-container"></div>
+                            </div>
+                        </div>
+
+                        <div id="eftPaymentForm" class="payment-form" style="display: none;">
+                            <div class="eft-info">
+                                <i class="fas fa-university" style="font-size: 48px; margin-bottom: 1rem;"></i>
+                                <p><strong>Banking Details:</strong></p>
+                                <p>Bank: First National Bank</p>
+                                <p>Account Name: Travel Mavericks PTY LTD</p>
+                                <p>Account Number: 62584712963</p>
+                                <p>Branch Code: 250655</p>
+                                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                                    Please use your booking reference as payment reference.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button id="completePaymentBtn" class="btn btn-primary btn-block">
+                            <i class="fas fa-lock"></i> Complete Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content modal-success">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Booking Confirmed!</h2>
+            <p>Thank you for booking with Travel Mavericks. Your confirmation has been sent to your email.</p>
+            <p class="booking-reference">Booking Reference: <strong id="bookingReference"></strong></p>
+            <button class="btn btn-primary" onclick="closeModal('successModal'); location.reload();">
+                Back to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div class="modal modal-fullscreen" id="adminDashboard">
+        <div class="modal-content admin-content">
+            <div class="admin-header">
+                <h2><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h2>
+                <button class="modal-close" onclick="closeModal('adminDashboard')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="admin-nav">
+                <button class="admin-nav-btn active" onclick="showAdminSection('overview')">
+                    <i class="fas fa-chart-line"></i> Overview
+                </button>
+                <button class="admin-nav-btn" onclick="showAdminSection('trips')">
+                    <i class="fas fa-map-marked-alt"></i> Trip Management
+                </button>
+                <button class="admin-nav-btn" onclick="showAdminSection('bookings')">
+                    <i class="fas fa-calendar-check"></i> Bookings
+                </button>
+                <button class="admin-nav-btn" onclick="showAdminSection('customers')">
+                    <i class="fas fa-users"></i> Customers
+                </button>
+                <button class="admin-nav-btn" onclick="showAdminSection('analytics')">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+            </div>
+
+            <div class="admin-content-area">
+                <!-- Overview Section -->
+                <div id="adminOverview" class="admin-section active">
+                    <h3>Dashboard Overview</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="totalBookings">0</h4>
+                                <p>Total Bookings</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="totalRevenue">R 0</h4>
+                                <p>Total Revenue</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="totalCustomers">0</h4>
+                                <p>Total Customers</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4 id="loyalCustomers">0</h4>
+                                <p>Loyal Customers (3+ bookings)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" onclick="showAdminSection('trips'); openTripModal()">
+                            <i class="fas fa-plus"></i> Add New Trip
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportBookings()">
+                            <i class="fas fa-download"></i> Export Bookings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trip Management Section -->
+                <div id="adminTrips" class="admin-section">
+                    <div class="section-header">
+                        <h3>Trip Management</h3>
+                        <button class="btn btn-primary" onclick="openTripModal()">
+                            <i class="fas fa-plus"></i> Add Trip
+                        </button>
+                    </div>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Location</th>
+                                    <th>Duration</th>
+                                    <th>Price</th>
+                                    <th>Bookings</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tripsTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Bookings Section -->
+                <div id="adminBookings" class="admin-section">
+                    <div class="section-header">
+                        <h3>Booking Management</h3>
+                        <div class="filters">
+                            <select id="bookingStatusFilter" onchange="filterBookings()">
+                                <option value="all">All Bookings</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="pending">Pending</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Customer</th>
+                                    <th>Trip</th>
+                                    <th>Date</th>
+                                    <th>Travelers</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingsTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Customers Section -->
+                <div id="adminCustomers" class="admin-section">
+                    <div class="section-header">
+                        <h3>Customer Management</h3>
+                        <div class="filters">
+                            <select id="customerTypeFilter" onchange="filterCustomers()">
+                                <option value="all">All Customers</option>
+                                <option value="loyal">Loyal Customers (3+ bookings)</option>
+                                <option value="regular">Regular Customers</option>
+                                <option value="new">New Customers</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Total Bookings</th>
+                                    <th>Total Spent</th>
+                                    <th>Loyalty Status</th>
+                                    <th>Discount Eligible</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTableBody">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="adminAnalytics" class="admin-section">
+                    <h3>Analytics & Reports</h3>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h4>Popular Destinations</h4>
+                            <div id="popularDestinations" class="chart-container">
+                                <!-- Chart will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Monthly Revenue</h4>
+                            <div id="monthlyRevenue" class="chart-container">
+                                <!-- Chart will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Customer Loyalty Distribution</h4>
+                            <div id="customerLoyalty" class="chart-container">
+                                <!-- Chart will be populated by JS -->
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Booking Trends</h4>
+                            <div id="bookingTrends" class="chart-container">
+                                <!-- Chart will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trip Management Modal -->
+    <div class="modal" id="tripModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('tripModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="tripModalTitle"><i class="fas fa-map-marked-alt"></i> Add New Trip</h2>
+            <form id="tripForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tripName">Trip Name *</label>
+                        <input type="text" id="tripName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tripLocation">Location *</label>
+                        <input type="text" id="tripLocation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tripDuration">Duration *</label>
+                        <input type="text" id="tripDuration" placeholder="e.g., 7 Days" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tripPrice">Base Price (R) *</label>
+                        <input type="number" id="tripPrice" min="0" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tripImage">Image URL *</label>
+                    <input type="url" id="tripImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="tripDescription">Description *</label>
+                    <textarea id="tripDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('tripModal')">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Trip
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=ZAR"></script>
+</body>
+</html>
